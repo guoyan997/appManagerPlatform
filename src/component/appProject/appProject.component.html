@@ -1,0 +1,89 @@
+<div class="headerDiv">
+  <div class="loginOutDiv">
+    <button type="button" (click)="exitLogin()" pButton icon="fa-external-link-square" label="退出登录"></button>
+  </div>
+</div>
+<div class="contentDiv">
+  <div class="appListDiv">
+    <div class="appListTitleDiv">
+      <div class="appListTitle"><span class="titleSpan">工程列表</span></div>
+      <div class="addAppBtn">
+        <button type="button" (click)="projectmodal.showAddPanel()" pButton icon="fa-external-link-square" label="新建工程"></button>
+        <div *ngIf="visibleUserPage" style="float: right">
+          <button type="button" (click)="showUserPage()" pButton icon="fa-external-link-square" label="用户管理"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="spaceDiv"></div>
+    <app-projectmodal #projectmodal [(titleName)] = "titleName" [(displayAddPanel)] = "displayAddPanel"  [(modalNameError)] = "modalNameError"
+                      [(modalName)] = "modalName"  [(modalDescription)] = "modalDescription"  [(modelErrorText)] = "modelErrorText"
+                      (SubmitCreateProject) = createProject($event)></app-projectmodal>
+
+    <app-imagemodal></app-imagemodal>
+
+    <div class="contentDetailDiv">
+    <p-dataTable [value]="projectModels"   [resizableColumns]="true"  width="500" hight="700" [rows]="15" [paginator]="true" [pageLinks]="10"
+                   >
+      <p-column field="projectName" header="工程名称" [style]="{'width':'25%'}" sortable="true" [headerStyle]="{'font-weight': 'bold'}">
+        <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+          <div class="downloadText" (click)="selectProject(releaseModel)">{{releaseModel[col.field]}}</div>
+        </ng-template>
+      </p-column>
+      <p-column field="packageName" header="包名" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+      <p-column field="createTime" header="创建时间" [style]="{'width':'30%'}" [headerStyle]="{'font-weight': 'bold'}" sortable="true"></p-column>
+      <p-column field="creator" header="创建人" [style]="{'width':'25%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+      <!--
+      <p-column field="createTime" header="发布时间" [style]="{'width':'30%'}"></p-column>
+      <p-column field="versionDescription" header="查看描述" [style]="{'width':'15%'}">
+        <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+          <span class="downloadText" (click)="showVersionDescription(releaseModel)">查看</span>
+        </ng-template>
+      </p-column>
+      <p-column  header="下载页" [style]="{'width':'10%'}">
+        <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+          <a class="downloadText" target="_blank" [routerLink]="['../../downloadpage', releaseModel.versionId]">打开</a>
+        </ng-template>
+      </p-column>
+      <p-column  header="操作" [style]="{'width':'10%'}">
+        <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+          <span class="deleteReleaseText" (click)="deleteVersionById(releaseModel)">删除</span>
+        </ng-template>
+      </p-column>
+      -->
+    </p-dataTable>
+
+
+
+
+
+
+<!--
+      <p-dataGrid [value]="projectModels" [paginator]="true" [rows]="24" >
+        <ng-template let-app pTemplate="item">
+          <div style="padding:3px" class="ui-g-12 ui-md-3">
+            <p-panel [header]="" [style]="{'text-align':'center'}" (click)="selectProject(app)">
+
+              <br/>
+              <div class="car-detail" style="font-size: 24px"><div style="width: 100%; height: 100%;"> {{app.projectName}}</div>
+
+              </div>
+              <hr class="ui-widget-content" style="border-top:0">
+              <div class="car-detail" style="font-size: 12px;">创建人：<span style="font-size: 14px">{{app.creator}}</span></div>
+            </p-panel>
+          </div>
+        </ng-template>
+      </p-dataGrid>
+      -->
+    </div>
+
+  </div>
+</div>
+<div class="footer">
+
+</div>
+
+
+
+
+

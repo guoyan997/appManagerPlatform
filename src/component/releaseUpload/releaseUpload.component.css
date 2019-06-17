@@ -1,0 +1,45 @@
+.dialogDiv {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+.uploadDiv {
+  width: 100%;
+  height: 400px;
+}
+.uploadTip {
+  width: 100%;
+  height: 10%;
+  line-height: 40px;
+  vertical-align: bottom;
+}
+.uploadArea{
+  width: 100%;
+  height: 90%;
+  line-height: 360px;
+  vertical-align: middle;
+  background-color: #A9B1B3;
+}
+.addRelease {
+  font-size: 72px;
+  color: #0064B4;
+  cursor: pointer;
+}
+.progressDiv {
+  width: 100%;
+  height: 5px;
+  line-height: 5px;
+  vertical-align: top;
+  margin-top: -5px;
+}
+.progressBar {
+  width: 100%;
+  height: 5px;
+  background: #00FF00;
+}
+progress::-moz-progress-bar { background: #00FF00; }
+progress::-webkit-progress-bar { background: #ffffff; }
+progress::-webkit-progress-value  { background: #00FF00; }
+.errorDiv {
+  color: red;
+}

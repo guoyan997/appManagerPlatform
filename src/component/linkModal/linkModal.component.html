@@ -1,0 +1,22 @@
+<!-- 选择关联App对话框 -->
+<p-dialog styleClass="uploadPanel" header="{{title}}" [(visible)]="visiblePanel" modal="modal" width="500" hight="400" [responsive]="true" (onHide)="hidePanel()">
+  <div class="dialogDiv">
+    <div class="uploadDiv">
+
+      <div class="ui-g" style="width:400px;margin-bottom:10px; text-align: left; margin-left: 40px"  >
+        <div  *ngIf="androidRelationIos">
+          <div class="ui-g-12" *ngFor="let relationModel of appLinkList"><p-radioButton  name="group1" value={{relationModel.iosKey}} label={{relationModel.iosBranchName}}({{relationModel.iosProjectName}})-iOS [(ngModel)]="selectLinkAppKey" inputId={{relationModel.id}}></p-radioButton></div>
+        </div>
+        <div *ngIf="!androidRelationIos">
+          <div  class="ui-g-12" *ngFor="let relationModel of appLinkList"><p-radioButton  name="group1" value={{relationModel.androidKey}} label={{relationModel.androidBranchName}}({{relationModel.androidProjectName}})-Android   [(ngModel)]="selectLinkAppKey" inputId={{relationModel.id}}></p-radioButton></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" (click)="OKlinkApp()" label="确定"></button>
+    <button type="button" pButton icon="fa-close" (click)="hidePanel()" label="取消"></button>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,75 @@
+.detailDiv {
+  margin: 0 auto;
+  width: 100%;
+  height:100%;
+  background-color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+}
+.loginFormDiv {
+  margin: 0 auto;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 80px;
+}
+.loginTitleDiv {
+  padding-top: 40px;
+}
+.loginTitleDiv > span {
+  font-size: 24px;
+  font-family: 宋体;
+  font-weight: bold;
+  color: #286090;
+}
+
+
+.loginFormContent {
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  width: 400px;
+  height:300px;
+  padding-top: 40px;
+
+}
+.inputError {
+  font-size: 12px;
+  font-family: 宋体;
+  color: red;
+}
+.errorDiv  > span {
+  font-size: 16px;
+  font-family: 宋体;
+  font-weight: bold;
+  color: red;
+}
+
+
+.inputRow {
+  width: 100%;
+  height: 35px;
+  vertical-align: bottom;
+  float: left;
+}
+
+.inputLabel {
+  float: left;
+  margin-left: 20px;
+  margin-top: 8px;
+  height: 30px;
+  line-height: 30px;
+  width: 120px;
+
+}
+.inputContent {
+  float: left;
+  margin-top: 8px;
+  height: 30px;
+}
+.inputPswError {
+  color: #ff0000;
+  font-size: 8px;
+  width: 100px;
+}

@@ -1,0 +1,124 @@
+<div class="headerDiv">
+  <div class="loginOutDiv">
+    <button type="button" (click)="exitLogin()" pButton icon="fa-external-link-square" label="退出登录"></button>
+  </div>
+</div>
+<div class="contentDiv">
+  <div class="appListDiv">
+    <div class="appListTitleDiv">
+      <div class="appListTitle"><span class="titleSpan">工程详情</span></div>
+      <div class="addAppBtn">
+        <button type="button" (click)="backAppList()" pButton icon="fa-external-link-square" label="返回工程列表"></button>
+        <button type="button" (click)="deleteProject()" pButton icon="fa-external-link-square" label="刪除该工程"></button>
+      </div>
+    </div>
+    <div class="contentDetailDiv">
+
+      <app-projectmodal #modalComponent [(titleName)] = "titleName" [(displayAddPanel)] = "displayAddPanel"  [(modalNameError)] = "modalNameError"
+                        [(modalName)] = "modalName"  [(modalDescription)] = "modalDescription" [(modelErrorText)] = "modelErrorText"
+                        (SubmitModifyProject) = modifyProject($event)
+                        (SubmitCreateBranch) = createBranch($event)
+                         ></app-projectmodal>
+
+
+      <app-releaseupload (SubmitUploadFile) = uploadFile($event)>
+      </app-releaseupload>
+<!--
+      <app-versionmodal [(versionModel)] = "versionModel" (SubmitModifyVersion) ="modifyVersionDesc($event)"></app-versionmodal>
+-->
+      <app-linkmodal></app-linkmodal>
+      <div class="detailDiv">
+        <div class="upDiv">
+        <!-- 这里显示工程的信息 -->
+          <div class="infoDiv">
+            <div class="projectNameDiv">
+              <div style="width: 100%; height: 20%; text-align: right">
+                <span class="changeNameDiv" style="font-size: 8px" (click)="showChangeProjectName()"><i class="fa fa-pencil-square-o iconDiv" aria-hidden="true"></i></span>
+              </div>
+              <div style="width: 100%; height: 80%; vertical-align: middle">
+                <span class="labProjectNameDiv" ></span>
+                <span  class="projectNameTitleDiv">{{projectModel.projectName}}</span>&nbsp;
+              </div>
+            </div>
+            <div class="projectDescription">
+                <div class="projectDescriptionTitle">描述：</div>
+                <div class="projectDescriptionContent">
+                  {{projectModel.description}}
+                </div>
+            </div>
+          </div>
+          <div class="infoDiv bordDiv">
+            <div class="infoMiddleDiv">
+              <span>创建人：</span><span>{{projectModel.creator}}</span>
+            </div>
+            <div  class="infoMiddleDiv">
+              <span>创建时间：</span><span>{{projectModel.createTime}}</span>
+            </div>
+            <div class="infoMiddleDiv">
+              <span>包名：</span><span>{{projectModel.packageName}}</span>
+            </div>
+            <div class="infoMiddleDiv">
+              <span>总下载量：</span><span>{{downloadCount}}</span>
+            </div>
+          </div>
+          <div class="infoDiv bordDiv">
+            <div class="chatTitleDiv">各渠道总下载量对比</div>
+            <div echarts [options]="chartOption" class="zhuChartDiv" (chartInit)="onChartInit($event)"></div>
+          </div>
+
+        </div>
+
+        <div class="spaceDiv"></div>
+        <!-- 这里放置App的版本信息-->
+        <div class="downDiv">
+          <div class="releaseListDiv">
+            <div class="releaseListTitleDiv">
+              <div class="releaseListTitle"><span>渠道管理</span></div>
+              <div class="releaseOptionDiv">
+                <button type="button" (click)="showAddBranchPanel()" pButton icon="fa-external-link-square" label="新建渠道"></button>
+              </div>
+            </div>
+            <div class="releaseListTableDiv">
+<!--
+              <p-tabView [(activeIndex)]="tableIndex" styleClass="TableViewDiv" [controlClose]="true" (onClose)="deleteBranch($event)" (onChange)="changTableViewIndex($event)">
+                <p-tabPanel [header]="item.branchName"  *ngFor="let item of branchList; let i = index" [selected]="i == tableIndex"  [closable]="true">
+                  <app-branchdetail  [branchModel]="item"   (modifyBranchInfoEmt) = "showModifyBranchPanel($event)"
+                                     (showCreateReleasePanelEmt) = "showCreateReleasePanel($event)" (showVersionDescriptionEmt) = "showVersionDesc($event)"
+                                     (openNewDownLoadPageEmt) = "openNewDownLoadPage($event)" (deleteVersionEmt) = "deleteVersion($event)"
+                                     (showLinkModalEmt) = "showLinkModal($event)" (deleteLinkModalEmt)="deleteLinkApp($event)"
+                  ></app-branchdetail>
+                </p-tabPanel>
+              </p-tabView>
+    -->
+              <p-dataTable [value]="branchList"   [resizableColumns]="true"  width="500" hight="700" [rows]="15" [paginator]="true" [pageLinks]="10">
+
+                <p-column field="branchName" header="渠道名称" [style]="{'width':'25%'}" sortable="true" [headerStyle]="{'font-weight': 'bold'}">
+                  <ng-template let-col let-branchModel="rowData" pTemplate="body">
+                    <div class="downloadText" (click)="selectBranch(branchModel)">{{branchModel[col.field]}}</div>
+                  </ng-template>
+                </p-column>
+                <p-column field="platform" header="平台" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+                <p-column field="versionCode" header="最新版本号" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+                <p-column field="downloadNum" header="新版本下载量" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+                <p-column field="createTime" header="发布时间" [style]="{'width':'30%'}" [headerStyle]="{'font-weight': 'bold'}" sortable="true"></p-column>
+                <p-column field="creator" header="发布人" [style]="{'width':'25%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+                <p-column  header="操作" [style]="{'width':'10%'}">
+                  <ng-template let-col let-branchModel="rowData" pTemplate="body">
+                    <div class="downloadText" (click)="showCreateReleasePanel(branchModel)">发布新版本</div>
+                  </ng-template>
+                </p-column>
+              </p-dataTable>
+              <!--删除版本确认对话框 -->
+              <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="footer">
+
+</div>

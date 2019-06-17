@@ -1,0 +1,33 @@
+<div>
+  <p-dialog styleClass="uploadPanel" header="{{titleName}}" [(visible)]="displayAddPanel" modal="modal" width="500" hight="300" [responsive]="true" (onHide)="hideAddAppPanel()">
+    <div class="dialogDiv">
+      <form id="addUserForm" name="form2" class="addAppForm" METHOD="POST"
+            ENCTYPE="multipart/form-data" #addAppForm="ngForm">
+        <div class="inputRow">
+          <div class="inputLabel"><span class="inputError">*</span>用户名：</div>
+          <div class="inputContent"><input type="text" name="userNameInput" id="userNameInput" [(ngModel)]="modalName"  required  #appNameInput="ngModel" style="width: 200px" ></div>
+          <div *ngIf="modalNameError" class=" inputError">{{modelErrorText}}</div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputLabel"><span class="inputError">*</span>密码：</div>
+          <div class="inputContent"><input type="password" name="passwordInput" id="passwordInput" [(ngModel)]="password"  required  #appNameInput="ngModel" style="width: 200px" ></div>
+          <div *ngIf="modalPasswordNullError" class=" inputError">{{modalPasswordNullTxt}}</div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputLabel"><span class="inputError">*</span>确认密码：</div>
+          <div class="inputContent"><input type="password" name="rePasswordInput" id="rePasswordInput" [(ngModel)]="rePassword"  required  #appNameInput="ngModel" style="width: 200px" ></div>
+          <div *ngIf="modalPasswordNotSameError" class=" inputError">{{modalPasswordNotSameTxt}}</div>
+        </div>
+
+        <br/>
+      </form>
+
+    </div>
+    <p-footer>
+      <button type="button" pButton icon="fa-check" (click)="okFrom()" label="提交"></button>
+      <button type="button" pButton icon="fa-close" (click)="resetForm()" label="重置"></button>
+    </p-footer>
+  </p-dialog>
+</div>

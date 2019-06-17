@@ -1,0 +1,139 @@
+<div class="headerDiv">
+  <div class="loginOutDiv">
+    <button type="button" (click)="exitLogin()" pButton icon="fa-external-link-square" label="退出登录"></button>
+  </div>
+</div>
+<div class="contentDiv">
+  <div class="appListDiv">
+    <div class="appListTitleDiv">
+      <div class="appListTitle"><span class="titleSpan">渠道详情</span></div>
+      <div class="addAppBtn">
+        <button type="button" (click)="backAppList()" pButton icon="fa-external-link-square" label="返回工程详情"></button>
+        <button type="button" (click)="modifyBranchInfo()" pButton icon="fa-external-link-square" label="修改渠道信息"></button>
+        <div *ngIf="isDefault" style="float: right">
+          <button type="button" (click)="deleteBranch()" pButton icon="fa-external-link-square" label="刪除该渠道"></button>
+        </div>
+
+      </div>
+    </div>
+    <div class="contentDetailDiv">
+      <app-projectmodal #modalComponent [(titleName)] = "titleName" [(displayAddPanel)] = "displayAddPanel"  [(modalNameError)] = "modalNameError"
+                        [(modalName)] = "modalName"  [(modalDescription)] = "modalDescription" [(modelErrorText)] = "modelErrorText"
+                        (SubmitModifyBranch) = modifyBranch($event)></app-projectmodal>
+
+      <app-versionmodal  (SubmitModifyVersion) ="modifyVersionDesc($event)"></app-versionmodal>
+
+      <app-linkmodal (createLinkEmt) = "createRelation($event)" (updateLinkEmt) = "updateRelation($event)" ></app-linkmodal>
+
+      <div class="detailDiv">
+          <div class="upDetailDiv">
+            <div style="width: 15%" class="branchIconDiv">
+              <div class="branchIconTitle">{{branchModel.branchName}}</div>
+              <img src="{{branchModel.iconPath == ''? imgSrc: branchModel.iconPath}}"  style="width: 120px; height: 120px">
+            </div>
+            <div style="width: 60%" class="branchInfoDiv">
+              <div class="infoUpDiv">
+                <div class="infoUpContentDiv">
+                  <div class="labelContentDiv">
+                    <span class="branchTitleSpan">AndroidKey: </span><span class="contentSpan">{{branchModel.androidKey}}</span>
+                  </div>
+                  <div  class="labelContentDiv labelContentDivRight" style="font-weight: bold">关联的APP:</div>
+                  <div class="labelContentDiv labelContentDivRight" *ngIf="androidHasLinkApp">
+                    <span>{{androidlinedApp}}</span>
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="showSelectLinkPanel('Android', '修改关联')"><u>修改关联</u></span>
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="deleteLinkApp('Android')"><u>取消关联</u></span>
+                  </div>
+                  <div class="labelContentDiv labelContentDivRight" *ngIf="!androidHasLinkApp">
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="showSelectLinkPanel('Android','添加关联')"><u>添加关联</u></span>
+                  </div>
+                </div>
+                <div class="infoUpContentDiv">
+                  <div class="labelContentDiv">
+                    <span class="branchTitleSpan">iOSKey: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="contentSpan">{{branchModel.iosKey}}</span>
+                  </div>
+                  <div  class="labelContentDiv labelContentDivRight" style="font-weight: bold">关联的APP:</div>
+                  <div class="labelContentDiv labelContentDivRight" *ngIf="iosHasLinkApp">
+                    <span>{{ioslinedApp}}</span>
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="showSelectLinkPanel('iOS', '修改关联')"><u>修改关联</u></span>
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="deleteLinkApp('iOS')"><u>取消关联</u></span>
+                  </div>
+                  <div class="labelContentDiv labelContentDivRight" *ngIf="!iosHasLinkApp">
+                    <span class="changeNameDiv" style="font-size: 8px" (click)="showSelectLinkPanel('iOS', '添加关联')"><u>添加关联</u></span>
+                  </div>
+                </div>
+              </div>
+              <div class="infoDownDiv">
+                <div class="infoDownContentDiv">
+                  <div class="infoDownLeftContentDiv">
+                    <span class="branchTitleSpan">创建人: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="contentSpan">{{branchModel.creator}}</span>
+                  </div>
+                  <div class="infoDownLeftContentDiv">
+                    <span class="branchTitleSpan">创建日期:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="contentSpan">{{branchModel.createTime}}</span>
+                  </div>
+                  <div class="infoDownLeftContentDiv">
+                    <span class="branchTitleSpan">下载量: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="contentSpan">{{branchModel.downloadCount}}</span>
+                  </div>
+                </div>
+                <div class="infoDownContentDescDiv">
+                </div>
+              </div>
+            </div>
+            <div style="width: 15%" class="branchOptionDiv">
+              <div class="branchTitleSpan" style="margin-left: 0px">分支描述：</div>
+              <br/>
+              <div class="branchDescriptionContent">
+                {{branchModel.description}}
+              </div>
+            </div>
+        </div>
+
+        <div class="spaceDiv"></div>
+        <!-- 这里放置App的版本信息-->
+        <div class="downDiv">
+          <div class="releaseListDiv">
+            <div class="releaseListTitleDiv">
+              <div class="releaseListTitle"><span>版本管理</span></div>
+              <div class="releaseOptionDiv">
+                <button type="button" (click)="openNewDownLoadPage()" pButton icon="fa-external-link-square" label="打开最新版本下载页"></button>
+              </div>
+            </div>
+            <div class="releaseListTableDiv">
+              <div class="downTableDiv">
+                <p-dataTable [value]="versionList" [resizableColumns]="true" [rows]="10" [paginator]="true" [pageLinks]="3" >
+                  <p-column field="versionName" header="版本名称" [style]="{'width':'15%'}"></p-column>
+                  <p-column field="versionCode" header="版本号" [style]="{'width':'20%'}"></p-column>
+                  <p-column field="platform" header="系统" [style]="{'width':'20%'}"></p-column>
+                  <p-column field="packageName" header="包名" [style]="{'width':'20%'}"></p-column>
+                  <p-column field="downloadNum" header="下载次数" [style]="{'width':'15%'}"></p-column>
+                  <p-column field="createTime" header="发布时间" [style]="{'width':'30%'}"></p-column>
+                  <p-column field="versionDescription" header="查看描述" [style]="{'width':'15%'}">
+                    <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+                      <span class="downloadText" (click)="showVersionDescription(releaseModel)">查看</span>
+                    </ng-template>
+                  </p-column>
+                  <p-column  header="下载页" [style]="{'width':'10%'}">
+                    <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+                      <a class="downloadText" target="_blank" [routerLink]="['../../downloadpage', releaseModel.versionId]">打开</a>
+                    </ng-template>
+                  </p-column>
+                  <p-column  header="操作" [style]="{'width':'10%'}">
+                    <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+                      <span class="deleteReleaseText" (click)="deleteVersion(releaseModel)">删除</span>
+                    </ng-template>
+                  </p-column>
+                </p-dataTable>
+              </div>
+              <!--删除版本确认对话框 -->
+              <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="footer">
+
+</div>

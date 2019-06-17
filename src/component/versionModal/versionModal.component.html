@@ -1,0 +1,46 @@
+<div>
+  <p-dialog styleClass="uploadPanel" header="版本查看" [(visible)]="visiblePanel" modal="modal" width="500" hight="500" [responsive]="true" (onHide)="hideVersionPanel()">
+    <div class="dialogDiv">
+      <div class="upDiv">
+        <div class="versionInfoDiv vCent">
+          <img src="{{versionModel.iconPath}}" style="width: 80px; height: 80px;">
+        </div>
+        <div class="versionInfoMiddleDiv">
+          <div class="versionInfo">
+            <span>版本号：{{versionModel.versionCode}}</span>
+          </div>
+          <div class="versionInfo">
+            <span>版本名称：{{versionModel.versionName}}</span>
+          </div>
+          <div class="versionInfo">
+            <span>系统： {{versionModel.platform}}</span>
+          </div>
+          <div class="versionInfo">
+            <span>文件大小： {{versionModel.fileSize}}MB</span>
+          </div>
+          <div class="versionInfo">
+            <span>创建人： {{versionModel.creator}}</span>
+          </div>
+          <div class="versionInfo">
+            <span>创建时间： {{versionModel.createTime}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="downDiv">
+        <br>
+        <div style="text-align: left">
+          <span>描述(直接修改，点确定键保存)：</span>
+        </div>
+        <div>
+          <textarea id="versionDescInput"  [rows]="7" [cols]="50" pInputTextarea autoResize="autoResize" name="description" ></textarea >
+        </div>
+
+      </div>
+
+    </div>
+    <p-footer>
+      <button type="button" pButton icon="fa-check" (click)="okFrom()" label="确认"></button>
+      <button type="button" pButton icon="fa-close" (click)="hideVersionPanel()" label="取消"></button>
+    </p-footer>
+  </p-dialog>
+</div>

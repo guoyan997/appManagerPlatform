@@ -1,0 +1,46 @@
+<div>
+  <p-dialog styleClass="uploadPanel" header="{{titleName}}" [(visible)]="displayAddPanel" modal="modal" width="680" hight="700" [responsive]="true" (onHide)="hideAddAppPanel()">
+    <div class="dialogDiv">
+      <form id="addImageForm" name="form2" class="addAppForm" METHOD="POST"
+            ENCTYPE="multipart/form-data" #addAppForm="ngForm">
+        <div class="nameDiv">
+          <div class="inputLabel"><span class="inputError">*</span>名称：</div>
+          <div class="inputContent"><input type="text" name="projectNameInput" id="projectNameInput" [(ngModel)]="modalName" #appNameInput="ngModel" style="width: 240px" ></div>
+          <div *ngIf="modalNameError" class=" inputError">{{modelErrorText}}</div>
+        </div>
+        <div class="iconDiv">
+          <div class="inputLabel">图标：</div>
+          <div class="addIconDiv">
+            <img id="iconImg" src="../../assets/add.png" width="100px" height="100px" (click)="selectIconFile()"
+                 (mouseout)="hideDeleteDiv($event)" (mousemove)="showDeleteDiv($event)"/>
+            <div id="deleteIcon" class="deleteDiv" (click)="deleteIconFile()" (mousemove)="showDeleteDiv($event)" (mouseout)="hideDeleteDiv($event)">X</div>
+          </div>
+          <input type="file" name="iconInput" id="iconInput" style="display: none" (change)="iconFileChange($event)" accept="image/png, image/jpg,image/jpeg">
+        </div>
+        <div class="shutCutDiv">
+          <div class="inputLabel">截图：</div>
+          <div class="addCutDiv" id="addCutDiv">
+            <img  src="../../assets/add.png" width="120px" height="240px" (click)="selectCutFile()"/>
+            <div class="deleteDiv">X</div>
+          </div>
+          <input type="file" name="shutCutInput" id="shutCutInput" style="display: none" (change)="cutFileChange($event)" accept="image/png, image/jpg,image/jpeg" multiple="multiple">
+        </div>
+        <div class="descriptionDiv">
+          <div class="inputLabel">描述：</div>
+          <br/>
+          <div class="inputBigRow">
+            <textarea  [rows]="5" [cols]="60" pInputTextarea autoResize="autoResize" name="description" [(ngModel)]="modalDescription" ></textarea >
+          </div>
+        </div>
+
+
+
+      </form>
+
+    </div>
+    <p-footer>
+      <button type="button" pButton icon="fa-check" (click)="okFrom()" label="提交"></button>
+      <button type="button" pButton icon="fa-close" (click)="resetForm()" label="重置"></button>
+    </p-footer>
+  </p-dialog>
+</div>

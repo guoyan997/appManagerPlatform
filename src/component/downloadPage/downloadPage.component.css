@@ -1,0 +1,106 @@
+.containerDiv {
+  width: 100%;
+  height: 1100px;
+  overflow-y: hidden;
+}
+.leftDiv {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+.centerDiv {
+  float: left;
+  width: 50%;
+  height: 100%;
+
+}
+.rightDiv {
+  float: right;
+  width: 25%;
+  height: 100%;
+  margin-right: 0px;
+  text-align: right;
+}
+
+.leftImg{
+  float: left;
+  margin-left: 0px;
+
+}
+
+.rightImg{
+  float: right;
+  margin-right: 0px;
+
+}
+
+.middleDiv {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.iconDiv {
+  height: 120px;
+  margin-top: 50px;
+  text-align: center;
+}
+.appNameDiv {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "宋体";
+  margin-top: 10px;
+}
+.versionDiv {
+  font-size: 18px;
+}
+.erWeiMaDiv {
+  margin-top: 30px;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+
+}
+.erWeiMaBorderDiv{
+  width: 220px;
+  height: 220px;
+  background-color: #EFF2F2;
+  border-radius: 30px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.erWeiMaImg {
+  margin-top: 40px;
+  margin-left: 0px;
+}
+
+.descripDiv {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  font-family: "宋体";
+  font-size: 12px;
+  color: #A9B1B3;
+}
+.btnDiv {
+  margin: 0 auto;
+  margin-top: 80px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.btnDiv span {
+  font-size: 20px;
+  color: #EFF2F2;
+  line-height: 50px;
+}
+
+
+.downloadDiv {
+  height: 400px;
+  border-bottom: solid 1px #A9B1B3;
+}

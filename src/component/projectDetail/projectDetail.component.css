@@ -1,0 +1,267 @@
+.detailDiv {
+  margin: 0 auto;
+  width: 100%;
+  height:100%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.upDiv{
+  width: 100%;
+  height: 200px;
+}
+.downDiv {
+  width: 100%;
+  height: 540px;
+}
+
+.infoDiv {
+  width: 30%;
+  height: 100%;
+  float: left;
+  margin-left: 10px;
+}
+.bordDiv {
+  border-left: 1px dashed #A9B1B3 ;
+}
+.projectNameDiv {
+  width: 100%;
+  height: 60%;
+  vertical-align: middle;
+}
+.projectDescription {
+  width: 100%;
+  height: 40%;
+  vertical-align: middle;
+  text-align: left;
+}
+.projectDescriptionTitle {
+  margin-left: 10px;
+  width: 90%;
+  height: 20%;
+}
+.projectDescriptionContent {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 85%;
+  height: 75%;
+  margin-left: 60px;
+  word-wrap:break-word
+}
+.iconDiv {
+  font-size: 16px;
+}
+.iconDiv:hover {
+  font-size: 24px;
+}
+.labProjectNameDiv {
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.projectNameTitleDiv{
+  font-size: 24px;
+}
+.changeNameDiv {
+  margin-right: 10px;
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+.infoMiddleDiv {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 80%;
+  height: 15%;
+  vertical-align: middle;
+  text-align: left;
+   font-size: 16px;
+  font-weight: bold;
+}
+
+.zhuChartDiv {
+  width: 120%;
+  height: 220px;
+  margin-top: -50px;
+}
+
+.chatTitleDiv {
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align:center;
+}
+
+
+.TableViewDiv {
+
+}
+
+
+
+
+/**
+设置详细信息块样式
+ */
+
+.labelTableDiv {
+  float: left;
+  margin-left: -100px;
+  margin-top: 0px;
+  width: 55%;
+  height: 360px;
+}
+
+.labelDiv {
+  float: left;
+  margin-left: 50px;
+  width: 40%;
+  height: 40px;
+  text-align: right;
+}
+.labelDiv > span {
+  font-size: 18px;
+  line-height: 40px;
+}
+.labelContentDiv {
+  float: left;
+  margin-left: 30px;
+  width: 40%;
+  height: 40px;
+  text-align: left;
+}
+.labelContentDiv > span {
+  font-size: 18px;
+  line-height: 40px;
+}
+.labelContentLongDiv >span {
+  font-size: 12px;
+  font-weight: bold;
+}
+.spaceDiv {
+  clear: both;
+  height: 0px;
+}
+.labelContentDivRadio {
+  width: 100%;
+  height: 30px;
+  margin-top: 7px;
+}
+
+.downloadText {
+  width: 100%;
+  height: 100%;
+  color: #286090;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+
+
+/**
+设置版本列表样式
+ */
+.releaseListDiv {
+  margin-top: -40px;
+  width: 100%;
+  height: 300px;
+}
+.releaseListTitleDiv {
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  background-color: #286090;
+}
+.releaseListTitle {
+  float: left;
+  width: 200px;
+  height: 40px;
+}
+.releaseListTitle span {
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.releaseOptionDiv {
+  width: 200px;
+  height: 100%;
+  margin-top: 5px;
+  float: right;
+  margin-right: 20px;
+}
+.releaseListTableDiv {
+  width: 100%;
+  height: 360px;
+}
+
+
+/**
+添加新版本对话框
+ */
+.dialogDiv {
+  margin-left: 30px;
+  width: 400px;
+  height: 300px;
+  background-color: #eeeeee;
+}
+
+.uploadDiv {
+  background-color: #eeeeee;
+}
+
+.spaceDiv {
+  clear: both;
+}
+
+.addAppForm {
+  width: 100%;
+  height: 100%;
+}
+
+.inputRow {
+  width: 100%;
+  height: 35px;
+  vertical-align: bottom;
+  float: left;
+}
+.inputBigRow {
+  margin-left: 20px;
+  display: inline;
+  float: left;
+  margin-top: 15px;
+}
+
+
+.inputLabel {
+  float: left;
+  margin-left: 20px;
+  margin-top: 8px;
+  height: 30px;
+  line-height: 30px;
+
+}
+.inputContent {
+  float: left;
+  margin-top: 8px;
+  height: 30px;
+}
+
+.inputUpload{
+  margin-left: 20px;
+  margin-top: -10px;
+  height: 40px;
+}
+
+.inputError {
+  color: #ff0000;
+}
+progress {
+  width: 320px;
+}
+progress::-webkit-progress-bar { background: #e6e6e6; }
+progress::-webkit-progress-value  { background: #0064B4; }

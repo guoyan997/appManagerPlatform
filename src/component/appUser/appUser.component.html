@@ -1,0 +1,57 @@
+<div class="headerDiv">
+  <div class="loginOutDiv">
+    <button type="button" (click)="exitLogin()" pButton icon="fa-external-link-square" label="退出登录"></button>
+  </div>
+</div>
+<div class="contentDiv">
+  <div class="appListDiv">
+    <div class="appListTitleDiv">
+      <div class="appListTitle"><span class="titleSpan">用户管理</span></div>
+      <div class="addAppBtn">
+        <button type="button" (click)="backAppList()" pButton icon="fa-external-link-square" label="返回工程列表"></button>
+        <button type="button" (click)="showAddUserPanel()" pButton icon="fa-external-link-square" label="添加用户"></button>
+      </div>
+    </div>
+
+    <div class="spaceDiv"></div>
+    <!--
+    <app-projectmodal #projectmodal [(titleName)] = "titleName" [(displayAddPanel)] = "displayAddPanel"  [(modalNameError)] = "modalNameError"
+                      [(modalName)] = "modalName"  [(modalDescription)] = "modalDescription"  [(modelErrorText)] = "modelErrorText"
+                      (SubmitCreateProject) = createProject($event)></app-projectmodal>
+    -->
+    <app-usermodal (SubmitCreateUser) = createUser($event)  (SubmitModifyUser) = modifyUser($event)>
+    </app-usermodal>
+
+    <!--删除版本确认对话框 -->
+    <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+    <div class="contentDetailDiv">
+      <p-dataTable [value]="userList"   [resizableColumns]="true"  width="500" hight="700" [rows]="15" [paginator]="true" [pageLinks]="10"
+      >
+        <p-column field="username" header="用户名" [style]="{'width':'25%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+        <p-column field="userType" header="用户类型" [style]="{'width':'25%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+        <p-column field="creator" header="创建人" [style]="{'width':'30%'}" [headerStyle]="{'font-weight': 'bold'}"></p-column>
+        <p-column field="createTime" header="创建时间" [style]="{'width':'30%'}" [headerStyle]="{'font-weight': 'bold'}" sortable="true"></p-column>
+        <p-column  header="修改信息" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}">
+          <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+            <span class="downloadText" (click)="showUserModal(releaseModel)">修改</span>
+          </ng-template>
+        </p-column>
+        <p-column  header="删除用户" [style]="{'width':'20%'}" [headerStyle]="{'font-weight': 'bold'}">
+          <ng-template let-col let-releaseModel="rowData" pTemplate="body">
+            <span class="downloadText" (click)="deleteUser(releaseModel)">删除</span>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+
+    </div>
+
+  </div>
+</div>
+<div class="footer">
+
+</div>
+
+
+
+
+

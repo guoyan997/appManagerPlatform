@@ -1,0 +1,38 @@
+.dialogDiv {
+  margin-left: 30px;
+  width: 400px;
+  height: 200px;
+  background-color: #ffffff;
+}
+.inputRow {
+  width: 100%;
+  height: 35px;
+  vertical-align: bottom;
+  float: left;
+}
+.inputBigRow {
+  margin-left: 20px;
+  display: inline;
+  float: left;
+  margin-top: 15px;
+}
+.inputLabel {
+  float: left;
+  margin-left: 20px;
+  margin-top: 8px;
+  height: 30px;
+  width: 80px;
+  line-height: 30px;
+
+}
+.inputContent {
+  float: left;
+  margin-top: 8px;
+  margin-left: 16px;
+  height: 30px;
+  width: 200px;
+}
+.inputError {
+  margin-top: 8px;
+  color: #ff0000;
+}

@@ -1,0 +1,89 @@
+<div class="headerDiv">
+  <div class="loginOutDiv">
+    <button type="button" (click)="showUserPswPannel()" pButton icon="fa-external-link-square" label="修改密码"></button>
+  </div>
+</div>
+<div class="contentDiv">
+  <div class="appListDiv">
+    <div class="appListTitleDiv">
+      <div class="appListTitle"><span class="titleSpan">用户登录</span></div>
+      <div class="addAppBtn">
+        <!--
+        <button type="button" (click)="backAppList()" pButton icon="fa-external-link-square" label="返回App列表"></button>
+        <button type="button" (click)="deleteApp()" pButton icon="fa-external-link-square" label="刪除App"></button>
+        -->
+      </div>
+    </div>
+    <div class="contentDetailDiv">
+      <div class="detailDiv">
+        <div class="loginFormDiv">
+          <div class="loginTitleDiv"><span>欢迎使用App升级服务管理平台</span></div>
+          <form class="loginFormContent" id="loginForm">
+            <div>
+              <label for="username" style="color: #286090; width: 80px">用户名：</label>
+              <input type="text" class="ng-dirty ng-invalid" id="username" name="username" [(ngModel)]="username" (change)="changeInput(1)" >
+              <div *ngIf="usernameError" class="inputError">用户名不能为空！</div>
+            </div>
+            <br/>
+
+            <div>
+              <label for="password" style="color: #286090; width: 80px">密码 &nbsp;：</label>
+              <input type="password" class="ng-dirty ng-invalid" id="password" name="password" [(ngModel)]="password" (change)="changeInput(2)" (keypress)="login($event)">
+              <div *ngIf="passwordError" class="inputError">密码不能为空！</div>
+            </div>
+            <br/>
+
+            <div class="errorDiv"  *ngIf="loginError">
+              <span>用户名或密码错误，登录失败！ </span>
+            </div>
+            <br/>
+
+            <a id="loginBtn" type="button" class="btn btn-primary btn-lg" (click)="checkLogin()" >登录</a> &nbsp;&nbsp;&nbsp;
+            <a id="resetBtn" type="button" class="btn btn-primary btn-lg" (click)="resetForm()">重置</a>
+
+          </form>
+        </div>
+        <!--修改密码对话框 -->
+        <p-dialog styleClass="uploadPanel" header="修改密码" [(visible)]="displayPanel" modal="modal" width="500" hight="400" [responsive]="true" (onHide)="hideChangeUserPswPanel()">
+          <div class="dialogDiv">
+            <div class="uploadDiv">
+              <form id="changeUserPswForm" name="form2"  METHOD="POST">
+                <div class="inputRow">
+                  <div class="inputLabel"><span class="inputError">*</span>用户名：</div>
+                  <div class="inputContent"><input type="text" name="userNameInput" id="userNameInput" [(ngModel)]="usernameInput"  required  #userNameInput="ngModel" (change)="changePswInput(1)" ></div>
+                </div>
+              <div class="inputRow">
+                <div class="inputLabel"><span class="inputError">*</span>旧密码：</div>
+                <div class="inputContent"><input type="password" name="oldPswInput" id="oldPswInput" [(ngModel)]="oldpswInput"  required  #oldPswInput="ngModel" (change)="changePswInput(2)" ></div>
+              </div>
+              <div class="inputRow">
+                <div class="inputLabel"><span class="inputError">*</span>新密码：</div>
+                <div class="inputContent"><input type="password" name="newPswInput" id="newPswInput" [(ngModel)]="newpswInput"  required  #newPswInput="ngModel" (change)="changePswInput(3)" ></div>
+              </div>
+              <div class="inputRow">
+                <div class="inputLabel"><span class="inputError">*</span>确认新密码：</div>
+                <div class="inputContent"><input type="password" name="reNewPswInput" id="reNewPswInput" [(ngModel)]="reNewpswInput"  required  #reNewPswInput="ngModel" (change)="changePswInput(4)" ></div>
+               </div>
+                 <div class="inputRow">
+                   <div id="formErrorInfo" class="inputLabel inputError" style="width: 100%"></div>
+                 </div>
+               </form>
+             </div>
+
+           </div>
+           <p-footer>
+             <button type="button" pButton icon="fa-check" (click)="changeUserPsw()" label="提交"></button>
+             <button type="button" pButton icon="fa-close" (click)="resetUserPswForm()" label="重置"></button>
+           </p-footer>
+         </p-dialog>
+
+
+
+       </div>
+     </div>
+   </div>
+
+ </div>
+ <div class="footer">
+
+ </div>

@@ -1,0 +1,125 @@
+.dialogDiv {
+  margin-left: 20px;
+  width: 600px;
+  height: 600px;
+}
+.addAppForm {
+  width: 100%;
+  height: 100%;
+
+}
+
+.nameDiv {
+  width: 100%;
+  height: 50px;
+}
+.iconDiv {
+  width: 100%;
+  height: 100px;
+}
+.shutCutDiv {
+  width: 100%;
+  height: 250px;
+}
+.descriptionDiv {
+  width: 100%;
+  height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+.inputRow {
+  width: 100%;
+  height: 35px;
+  vertical-align: bottom;
+  float: left;
+  background-color: #fff000;
+}
+.iconRow {
+  float: left;
+  width: 100%;
+  height: 100px;
+  background-color: #25A6E3;
+
+}
+.addIconDiv {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  border: dashed 1px #cccccc;
+  cursor: pointer;
+  position:relative;
+}
+.addIcon {
+  font-size: 24px;
+  line-height: 100px;
+}
+.shutCutRow {
+  float: left;
+  width: 600px;
+  height: 200px;
+}
+.addCutDiv {
+  float: left;
+  width: 120px;
+  height: 240px;
+  margin-top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: dashed 1px #cccccc;
+  position:relative;
+}
+
+.deleteDiv {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 0px ;
+  top: 0px;
+  background-color: #0064B4;
+  color: #ffffff;
+  z-index:100;
+}
+
+.labelDiv {
+  width: 150px;
+  height: 100px;
+  background-color: #fff000;
+
+}
+.inputBigRow {
+  margin-left: 20px;
+  display: inline;
+  float: left;
+  margin-top: 15px;
+}
+.inputLabel {
+  float: left;
+  margin-left: 10px;
+  height: 30px;
+  line-height: 30px;
+  width: 50px;
+  font-weight: bold;
+}
+.inputContent {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 30px;
+  width: 110px;
+}
+.inputError {
+  margin-top: 0px;
+  height: 50px;
+  line-height: 50px;
+ vertical-align: middle;
+  color: #ff0000;
+}

@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  overflow:auto;
+}
+.headerDiv {
+  position:absolute;
+  top:0;
+  left:0;
+  height:50px;
+  width:100%;
+  background-color: #88D6E9;
+}
+
+.loginOutDiv{
+  float: right;
+  margin-right: 0px;
+  height: 100%;
+  width: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+.loginOutDiv button{
+  margin-top: 10px;
+}
+
+.contentDiv {
+  position:absolute;
+  width:100%;
+  overflow:auto;
+  background-color:#eeeeee;
+  bottom:50px;
+  top:50px;
+  text-align:center;
+  z-index: 10000;
+
+}
+.contentDetailDiv {
+
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 100%;
+
+}
+
+.footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  background-color: #88D6E9;
+  height:50px;
+  width:100%;
+
+}
+
+
+.appListDiv {
+  width: 80%;
+  height: 100%;
+  margin:0 auto;
+}
+.appListTitleDiv {
+  width: 100%;
+  height: 80px;
+  background-color: #286090;
+}
+.appListTitle {
+  float: left;
+  margin-left: 20px;
+}
+.titleSpan {
+  float: left;
+  vertical-align: middle;
+  line-height: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.addAppBtn{
+  float: right;
+  width: 300px;
+  margin-right: 30px;
+  line-height: 80px;
+  vertical-align: middle;
+}
+
+.ui-datatable {
+  width: 100%;
+}
+
+.uploadPanel .ui-dialog-titlebar {
+  background: #286090;
+  color: #ffffff;
+}

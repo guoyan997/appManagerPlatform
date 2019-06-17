@@ -1,0 +1,54 @@
+<div class="containerDiv">
+  <div class="leftDiv">
+    <div class="row">
+      <div class="col-lg-12 	col-md-12 col-sm-12 col-xs-12">
+        <img src="assets/download_left.png" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  <div class="container centerDiv">
+    <div class="middleDiv">
+      <div class="row  iconDiv">
+        <img src="{{verionModel.iconPath}}" >
+      </div>
+      <div class="row">
+        <div class="appNameDiv">
+          <span>{{verionModel.projectName}}</span>
+        </div>
+        <div class="appNameDiv versionDiv">
+          <span>{{verionModel.platform}}-{{verionModel.versionName}}(bulid: {{verionModel.versionCode}})</span>
+        </div>
+      </div>
+
+      <div class="row downloadDiv" id="downloadDiv">
+        <div class="erWeiMaDiv">
+          <div class="erWeiMaBorderDiv" (mousemove)="largeImg()"  (mouseout)="backImg()" >
+            <img src="{{verionModel.ewmImgPath}}" id="erWeiMaImg" class="erWeiMaImg" width="160px" height="160px" />
+          </div>
+        </div>
+        <div class="btnDiv">
+          <a id="btn-download" type="button" class="btn btn-primary btn-lg" href="{{verionModel.filePath}}" (click)="downLoadCount()">下载安装包</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="descripDiv col-lg-6 	col-md-6 col-sm-6 col-xs-6 ">
+          <BR/>
+          <span>文件大小：{{verionModel.fileSize}}MB &nbsp; &nbsp; </span>
+          <br/>
+          <span>发版时间：{{verionModel.createTime}} &nbsp; &nbsp; </span>
+          <br/>
+          <span>备注：{{verionModel.versionDescription}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="rightDiv">
+    <div class="row">
+      <div class="col-lg-12 	col-md-12 col-sm-12 col-xs-12">
+        <img src="assets/download_right.png" class="img-responsive rightImg">
+      </div>
+    </div>
+  </div>
+</div>

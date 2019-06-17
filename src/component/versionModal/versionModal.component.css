@@ -1,0 +1,38 @@
+.dialogDiv {
+  width: 100%;
+  height: 400px;
+}
+.upDiv {
+  width: 100%;
+  height: 50%;
+}
+.versionInfoDiv {
+  float: left;
+  width: 30%;
+  height: 200px;
+  border-right:  1px dashed #cccccc;
+}
+.versionInfoMiddleDiv {
+  float: left;
+  width: 65%;
+  height: 200px;
+  margin-left: 15px;
+}
+.vCent{
+  line-height: 200px;
+  display:inline-block;
+  vertical-align:middle;
+
+}
+.versionInfo {
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.downDiv {
+  width: 100%;
+  height: 50%;
+
+}

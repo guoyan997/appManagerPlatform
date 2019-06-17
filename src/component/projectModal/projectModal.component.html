@@ -1,0 +1,25 @@
+<div>
+  <p-dialog styleClass="uploadPanel" header="{{titleName}}" [(visible)]="displayAddPanel" modal="modal" width="500" hight="300" [responsive]="true" (onHide)="hideAddAppPanel()">
+    <div class="dialogDiv">
+      <form id="addProjectForm" name="form2" class="addAppForm" METHOD="POST"
+            ENCTYPE="multipart/form-data" #addAppForm="ngForm">
+        <div class="inputRow">
+          <div class="inputLabel"><span class="inputError">*</span>名称：</div>
+          <div class="inputContent"><input type="text" name="projectNameInput" id="projectNameInput" #projectNameInput [(ngModel)]="modalName"  required  #appNameInput="ngModel" style="width: 200px" ></div>
+          <div *ngIf="modalNameError" class=" inputError">{{modelErrorText}}</div>
+        </div>
+        <div class="inputLabel">描述：</div>
+        <br/>
+        <div class="inputBigRow">
+          <textarea  [rows]="5" [cols]="50" pInputTextarea autoResize="autoResize" name="description" [(ngModel)]="modalDescription" ></textarea >
+        </div>
+        <br/>
+      </form>
+
+    </div>
+    <p-footer>
+      <button type="button" pButton icon="fa-check" (click)="okFrom()" label="提交"></button>
+      <button type="button" pButton icon="fa-close" (click)="resetForm()" label="重置"></button>
+    </p-footer>
+  </p-dialog>
+</div>

@@ -1,0 +1,204 @@
+.detailDiv {
+  margin: 0 auto;
+  width: 100%;
+  height:100%;
+  text-align: center;
+}
+
+.downDiv {
+  width: 100%;
+  height: 540px;
+}
+
+
+
+.spaceDiv {
+  clear: both;
+  height: 0px;
+}
+
+
+.downloadText {
+  width: 100%;
+  height: 100%;
+  color: #286090;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.addAppBtn{
+  float: right;
+  width: 600px;
+  margin-right: 30px;
+  line-height: 80px;
+  vertical-align: middle;
+  text-align: right;
+}
+.releaseOptionDiv {
+  width: 200px;
+  height: 100%;
+  margin-top: 5px;
+  float: right;
+  margin-right: 20px;
+}
+
+
+/**
+设置版本列表样式
+ */
+.releaseListDiv {
+  margin-top: -40px;
+  width: 100%;
+  height: 300px;
+}
+.releaseListTitleDiv {
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  background-color: #286090;
+}
+.releaseListTitle {
+  float: left;
+  width: 200px;
+  height: 40px;
+}
+.releaseListTitle span {
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.releaseListTableDiv {
+  width: 100%;
+  height: 360px;
+}
+
+.spaceDiv {
+  clear: both;
+}
+
+.upDetailDiv {
+  width: 100%;
+  height: 200px;
+  background-color: #ffffff;
+
+}
+
+.downTableDiv {
+  width: 100%;
+  height: 500px;
+  background-color: #ffffff;
+}
+.branchIconDiv {
+  float: left;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.branchIconTitle {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.branchInfoDiv {
+  float: left;
+  text-align: left;
+  height: 100%;
+}
+.infoUpDiv {
+  float: left;
+  width: 100%;
+  height: 50%;
+}
+.infoDownDiv {
+  float: left;
+  width: 100%;
+  height: 50%;
+}
+
+.infoUpContentDiv {
+  height: 50%;
+  width: 100%;
+}
+
+.infoDownContentDiv {
+  float: left;
+  height: 100%;
+  width: 45%;
+}
+.infoDownContentDescDiv {
+  float: left;
+  height: 100%;
+  width: 55%;
+}
+
+
+.labelContentDiv {
+  float: left;
+  height: 100%;
+  line-height: 50px;
+}
+.labelContentDivRight {
+  margin-left: 20px;
+}
+.changeNameDiv {
+  color: dodgerblue;
+  cursor: pointer;
+  width: 80px;
+  height: 20px;
+}
+.infoDownLeftContentDiv {
+  float: left;
+  width: 100%;
+  height: 30px;
+}
+
+
+
+.branchDescriptionContent {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 70%;
+  word-wrap:break-word;
+}
+.branchTitleSpan {
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100px;
+  margin-top: 15px;
+}
+.contentSpan {
+  font-size: 14px;
+}
+.branchOptionDiv {
+  float: left;
+  margin-left: 20px;
+  height: 100%;
+  text-align: left;
+}
+.branchBtnDiv {
+  height: 20%;
+  margin-top: 5px;
+}
+.downloadText {
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+.deleteReleaseText{
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+

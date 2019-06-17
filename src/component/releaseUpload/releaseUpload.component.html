@@ -1,0 +1,31 @@
+<div style="width: 100%; height: 100%; background-color: #00FF00; z-index: 1000">
+<p-dialog styleClass="uploadPanel" header="发布新版本" [(visible)]="visiblePanel" modal="modal" width="500" hight="700" [responsive]="true" (onHide)="hideUploadPanel()">
+  <div class="dialogDiv">
+    <div class="uploadDiv">
+      <div class="uploadTip">
+        <span>拖拽安装包文件（.apk或.ipa文件）到下面区域，进行发布</span>
+        <div *ngIf="fileError" class="errorDiv">{{fileErrorTxt}}</div>
+      </div>
+     <div class="uploadArea" id="uploadArea" (dragover)="fileDragOver($event);$event.preventDefault()"
+          (drop)="filDrop($event);$event.preventDefault()"
+          (dragleave)="fileDragLeave($event);$event.preventDefault()"
+          (dragenter)="fileDragEnter($event);$event.preventDefault()" (click)="showUploadInput()">
+       <i class="fa fa-plus-square-o addRelease" aria-hidden="true" ></i>
+       <input type="file" id="uploadFile" style="display:none" (change)="fileSelected($event)">
+     </div>
+    </div>
+
+    <div class="progressDiv">
+      <div *ngIf="showProgress">
+        <progress id="progressBar" value="0" max="100" class="progressBar"></progress>
+        <br/>
+        <br/>
+        <br/>
+        <span id="percentage" ></span>
+      </div>
+    </div>
+
+  </div>
+
+</p-dialog>
+</div>
